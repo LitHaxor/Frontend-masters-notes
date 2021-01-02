@@ -83,6 +83,7 @@
     font-size: 1.8rem;
     color: rgb(56, 56, 56);
 }
-.link-text :hover {
+.link-items :hover {
     color: rgb(34, 34, 34);
+    text-decoration: underline;
 }
