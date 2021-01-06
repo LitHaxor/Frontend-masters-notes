@@ -17,5 +17,5 @@ addFavoriteBook("Great Expectations");
 addFavoriteBook("You don't knowJS");
 
 
-for(let i=0; i< bookNames.length ; i++)
-    console.log(bookNames[i]);
+for(let bookName of bookNames )
+    console.log(bookName);
