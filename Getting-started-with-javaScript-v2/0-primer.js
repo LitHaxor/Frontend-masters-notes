@@ -1,10 +1,7 @@
-
 var bookNames = [];
 
-const addFavoriteBook = (bookName) =>
-{
-    if(bookName.includes("Great"))
-    {
+const addFavoriteBook = (bookName) => {
+    if (bookName.includes("Great")) {
         return;
     }
     bookNames.push(bookName);
@@ -17,5 +14,5 @@ addFavoriteBook("Great Expectations");
 addFavoriteBook("You don't knowJS");
 
 
-for(let bookName of bookNames )
+for (let bookName of bookNames)
     console.log(bookName);

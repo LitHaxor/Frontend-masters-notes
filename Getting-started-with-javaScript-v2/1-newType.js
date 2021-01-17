@@ -1,4 +1,4 @@
-let yesterday = new Date("March 6, 2020"); 
+let yesterday = new Date("March 6, 2020");
 yesterday.toUTCString();
 
 var cgpa = String(3.7);
