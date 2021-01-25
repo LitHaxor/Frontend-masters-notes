@@ -25,19 +25,49 @@ a {
 	background-color: #fff;
 }
 
+
 div img {
 	width: 100%;
 	max-width: 225px; 
 }
 
 /* grid system -- mobile first! */
+.row{
+	display: flex;
+	flex-direction: row;
+}
+[class *= "col-"]{
+	margin-left: 4%;
+}
 
-
+.col-1{
+	background: #ffc;
+}
+.col-2{
+	background: #ffa;
+}
+.col-3{
+	background: #f5a;
+}
+.col-4{
+	background: #1fc;
+}
 /* Mobile Landscape Screen Sizes */
 @media only screen and (min-width: 480px)  {
 
 }
 /* Desktop screen Sizes */
 @media only screen and (min-width: 768px) {
-
+	.col-1{
+		flex: 0 0 20%;
+	}
+	.col-2{
+		flex: 0 0 44%;
+	}
+	.col-3{
+		flex: 0 0 68%;
+	}
+	.col-4{
+		flex: 0 0 92%;
+	}
 }
