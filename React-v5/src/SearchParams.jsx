@@ -1,31 +1,40 @@
-import React, {useState} from 'react'
-import {ANIMALS} from '@frontendmasters/pet';
-import useDropdown from './useDropdown';
+import React, { useState, useEffect } from "react";
+import pet, { ANIMALS } from "@frontendmasters/pet";
+import useDropdown from "./useDropdown";
+
 const SearchParams = () => {
-    const [location, setLocation] = useState("Seattle, WA");
+  const [location, updateLocation] = useState("Seattle, WA");
+  const [breeds, updateBreeds] = useState([]);
+  const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
+  const [breed, BreedDropdown, updateBreed] = useDropdown("Breed", "", breeds);
 
-    const [breeds, setBreeds] = useState([]);
+  useEffect(() => {
+    updateBreeds([]);
+    updateBreed("");
+    pet.breeds(animal).then(({ breeds }) => {
+      const breedStrings = breeds.map(({ name }) => name);
+      updateBreeds(breedStrings);
+    }, console.error);
+  }, [animal]);
 
-    const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
+  return (
+    <div className="search-params">
+      <form>
+        <label htmlFor="location">
+          Location
+          <input
+            id="location"
+            value={location}
+            placeholder="Location"
+            onChange={e => updateLocation(e.target.value)}
+          />
+        </label>
+        <AnimalDropdown />
+        <BreedDropdown />
+        <button>Submit</button>
+      </form>
+    </div>
+  );
+};
 
-    const [breed, BreedDropdown] = useDropdown("Breed", "" , breeds);
-    // Custom hooks
-
-
-
-    return (
-        <div className="search-params">
-            <form >
-                <h1>{location}</h1>
-                <label htmlFor="location">Location</label>
-                <input type="text" value={location} placeholder="location" onChange={e=> setLocation(e.target.value)} />
-                
-                <AnimalDropdown/>
-                <BreedDropdown/>
-                <button>Submit</button>
-            </form>
-        </div>
-    )
-}
-
-export default SearchParams
+export default SearchParams;
