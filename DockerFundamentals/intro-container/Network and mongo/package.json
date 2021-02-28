@@ -1,0 +1,18 @@
+{
+  "name": "netmong",
+  "version": "1.0.0",
+  "description": "**To see available networks:**",
+  "main": "server.js",
+  "dependencies": {
+    "@hapi/hapi": "20.1.0",
+    "hapi-pino": "^8.3.0",
+    "mongodb": "^3.3.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
