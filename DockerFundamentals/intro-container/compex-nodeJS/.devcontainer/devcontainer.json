@@ -1,0 +1,15 @@
+{
+    "name": "Frontend master sample",
+    "dockerFile": "Dockerfile",
+    "appPort": [3000],
+    "runArgs": ["-u", "node"],
+    "settings": {
+        "workbench.colorTheme": "Community Material Theme Palenight",
+        "terminal.integrated.shell.linux": "/bin/sh"
+    },
+    "postCreateCommand": "npm install",
+    "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+    ]
+}
