@@ -15,3 +15,7 @@ RUN npm ci && npm run build
 FROM nginx:1.19.7-alpine 
 
 COPY --from=build /app/build  /usr/share/nginx/html
+
+
+# For Developemnt 
+# docker run --mount type=bind,source="$(pwd)"/build,target=/usr/share/nginx/html -p 8081:80 nginx:1.19.7-alpine
