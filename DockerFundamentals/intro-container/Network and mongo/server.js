@@ -19,7 +19,7 @@ async function start() {
     path: "/",
     async handler() {
       const count = await collection.count();
-      return { success: true, count };
+      return { success: true , hasnaIs: false };
     }
   });
 

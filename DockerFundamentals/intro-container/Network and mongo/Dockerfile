@@ -1,5 +1,7 @@
 FROM node:15.10.0-alpine3.10
 
+RUN npm i -g nodemon
+
 USER node
 
 RUN mkdir /home/node/src
@@ -13,4 +15,4 @@ RUN npm ci
 COPY --chown=node:node . .
 
 
-CMD ["node", "server.js"]
+CMD ["nodemon", "server.js"]

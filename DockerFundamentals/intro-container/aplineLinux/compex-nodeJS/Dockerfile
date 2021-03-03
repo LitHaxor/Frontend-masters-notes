@@ -1,4 +1,17 @@
-FROM alpine:3.10
+# Bulid stage
+FROM node AS build
+
+WORKDIR /build
+
+COPY package-lock.json package.json ./
+
+RUN npm ci
+
+COPY . .
+
+# runtime stages
+
+FROM alpine:3.10 AS stage
 
 RUN apk add --update nodejs npm
 
@@ -8,15 +21,10 @@ USER node
 
 RUN mkdir /home/node/src
 
+COPY --from=build --chown=node:node /build .
+
 WORKDIR /home/node/src
 
-COPY --chown=node:node package-lock.json package.json ./
-
-RUN npm ci
-
-COPY --chown=node:node . .
-
-
-EXPOSE 3000
-
 CMD ["node", "index.js"]
+
+
