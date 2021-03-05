@@ -17,4 +17,13 @@ const Page = () => {
     )
 }
 
+export async function getStaticProps(context) {
+    console.log(context);
+    return {
+      props: {}
+    }
+}
 export default Page;
+
+
+
