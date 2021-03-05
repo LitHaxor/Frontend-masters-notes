@@ -21,4 +21,13 @@ export default Page;
 
 
 
+export function getStaticProps(){
+    return {
+        props: {
+            content: {
+                title: 'This is a really dope note takling app'
+            }
+        }
+    }
+}
 
